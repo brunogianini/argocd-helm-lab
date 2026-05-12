@@ -57,12 +57,16 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- with .Values.volumeMounts }}
+          {{- if .Values.volumeMounts }}
           volumeMounts:
-            {{ toYaml .Values.volumeMounts | indent 12 }}
+            {{ toYaml .Values.volumeMounts | nindent 12 }}
+          {{- end }}
           {{- end }}
       {{- with .Values.volumes }}
+      {{- if .Values.volumes }}
       volumes:
-        {{ toYaml .Values.volumes | indent 8 }}
+        {{ toYaml .Values.volumes | nindent 8 }}
+      {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
