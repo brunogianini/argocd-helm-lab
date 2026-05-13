@@ -26,7 +26,14 @@ spec:
             - containerPort: {{ .Values.service.port }}
 
           volumeMounts:
-{{ toYaml .Values.volumeMounts | nindent 12 }}
+{{- if .Values.storage.enabled }}
+            - name: storage
+              mountPath: /data
+{{- end }}
 
       volumes:
-{{ toYaml .Values.volumes | nindent 8 }}
+{{- if .Values.storage.enabled }}
+        - name: storage
+          persistentVolumeClaim:
+            claimName: {{ .Values.storage.existingClaim }}
+{{- end }}
