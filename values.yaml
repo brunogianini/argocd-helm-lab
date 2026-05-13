@@ -155,18 +155,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-storage:
-  enabled: true
-
-  pv:
-    name: meu-pv
-
-  pvc:
-    name: meu-pvc
-
-  size: 1Gi
-  accessMode: ReadWriteOnce
-  storageClass: manual
-
-  hostPath: /tmp/meu-pv
