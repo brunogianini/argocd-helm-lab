@@ -167,6 +167,6 @@ storage:
 
   size: 1Gi
   accessMode: ReadWriteOnce
-  storageClass: standard
+  storageClass: manual
 
   hostPath: /tmp/meu-pv
