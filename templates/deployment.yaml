@@ -26,14 +26,14 @@ spec:
             - containerPort: {{ .Values.service.port }}
 
           volumeMounts:
-{{- if .Values.storage.enabled }}
+            {{- if .Values.storage.enabled }}
             - name: storage
               mountPath: /data
-{{- end }}
+            {{- end }}
 
+      {{- if .Values.storage.enabled }}
       volumes:
-{{- if .Values.storage.enabled }}
         - name: storage
           persistentVolumeClaim:
-            claimName: {{ .Values.storage.existingClaim }}
-{{- end }}
+            claimName: {{ .Values.storage.existingClaim | quote }}
+      {{- end }}
