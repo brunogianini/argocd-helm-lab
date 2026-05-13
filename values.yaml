@@ -157,4 +157,5 @@ tolerations: []
 affinity: {}
 
 storage:
+  enabled: true
   existingClaim: meu-pvc
