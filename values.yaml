@@ -157,7 +157,7 @@ tolerations: []
 affinity: {}
 
 storage:
-  enabled: false
+  enabled: true
 
   pv:
     name: meu-pv
